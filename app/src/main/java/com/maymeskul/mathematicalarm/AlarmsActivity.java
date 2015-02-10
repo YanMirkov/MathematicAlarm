@@ -17,4 +17,9 @@ public class AlarmsActivity extends Activity {
     protected void onStart() {
         super.onStart();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 }
