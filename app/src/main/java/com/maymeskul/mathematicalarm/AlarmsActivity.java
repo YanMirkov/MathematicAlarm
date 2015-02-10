@@ -12,4 +12,9 @@ public class AlarmsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarms_layout);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }
