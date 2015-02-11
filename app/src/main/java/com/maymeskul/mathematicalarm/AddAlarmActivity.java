@@ -10,6 +10,6 @@ public class AddAlarmActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_alarm_layout);
+        setContentView(R.layout.add_alarm);
     }
 }
