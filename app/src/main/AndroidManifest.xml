@@ -24,6 +24,7 @@
             </meta-data>
 
         </activity>
+        <activity android:name=".TaskActivity"/>
 
         <service android:name=".AlarmService" android:enabled="true"/>
     </application>

@@ -11,6 +11,10 @@
     <string name="details_thursday">Четверг</string>
     <string name="details_friday">Пятница</string>
     <string name="details_saturday">Суббота</string>
+    <string name="details_alarm_tone">Мелодия</string>
+    <string name="details_alarm_tone_default">Выбрать Мелодию</string>
+    <string name="btn_tasks">Далее</string>
+    <string name="btn_create">Создать</string>
 
 
 </resources>

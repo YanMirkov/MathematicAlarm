@@ -30,6 +30,7 @@
             android:ems="10"
             android:hint="@string/details_alarm_name"
             android:textColorHint="@android:color/holo_blue_dark"
+            android:textColor="@android:color/holo_blue_dark"
 
             />
         <View
@@ -201,6 +202,51 @@
             android:layout_alignBottom="@+id/alarm_details_label_saturday"
             android:layout_alignParentRight="true"
             android:checked="true" />
+
+        <LinearLayout
+            android:id="@+id/alarm_ringtone_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/divider3"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/alarm_label_tone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/details_alarm_tone"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/alarm_label_tone_selection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/details_alarm_tone_default"
+                android:textSize="14dp" />
+        </LinearLayout>
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_green_dark"
+            android:layout_below="@+id/alarm_ringtone_container"
+            android:layout_marginTop="5dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_tasks"
+            android:layout_below="@+id/divider4"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/background_light"
+            android:layout_marginTop="10dp"
+            android:layout_alignRight="@+id/divider4"
+            android:onClick="onClickChoseTask"
+            />
 
     </RelativeLayout>
 
