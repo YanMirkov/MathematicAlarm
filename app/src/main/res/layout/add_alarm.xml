@@ -66,21 +66,13 @@
             android:layout_marginTop="5dp"
             />
 
-        <TextView
-            android:id="@+id/alarm_details_label_sunday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/divider2"
-            android:layout_below="@+id/divider2"
-            android:layout_marginTop="10dp"
-            android:text="@string/details_sunday" />
 
         <TextView
             android:id="@+id/alarm_details_label_monday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/alarm_details_label_sunday"
-            android:layout_below="@+id/alarm_details_label_sunday"
+            android:layout_alignLeft="@+id/divider2"
+            android:layout_below="@+id/divider2"
             android:layout_marginTop="10dp"
             android:text="@string/details_monday" />
 
@@ -129,13 +121,21 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/details_saturday" />
+        <TextView
+            android:id="@+id/alarm_details_label_sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/alarm_details_label_saturday"
+            android:layout_below="@+id/alarm_details_label_saturday"
+            android:text="@string/details_sunday" />
+
 
         <View
             android:id="@+id/divider3"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="@android:color/holo_green_dark"
-            android:layout_below="@+id/alarm_details_label_saturday"
+            android:layout_below="@+id/alarm_details_label_sunday"
             android:layout_marginTop="5dp"
             />
 
