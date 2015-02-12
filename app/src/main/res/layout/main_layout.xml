@@ -16,14 +16,15 @@
             android:background="@color/background_material_dark"
             >
             <ImageButton android:src="@drawable/ic_action_add_alarm"
-                android:background="null"
+
+                android:background="@android:color/transparent"
                 android:onClick="onClickCreateAlarm"
                 />
             <TextView android:text="Добавить будильник"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textColor="@color/abc_primary_text_disable_only_material_dark"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
                 />
         </TableRow>
 
@@ -33,14 +34,19 @@
             android:background="@color/highlighted_text_material_light"
             >
             <ImageButton android:src="@drawable/ic_action_alarms"
-                android:background="null"
+                android:background="@android:color/transparent"
                 />
             <TextView android:text="6.00 (Ежедневно)"
-                android:textSize="25dp"
+                android:textSize="20dp"
+                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
                 android:textColor="@android:color/background_light"
+                />
+            <ImageButton android:src="@drawable/ic_action_remove"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
                 />
 
         </TableRow>
@@ -49,14 +55,19 @@
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
             >
-           <ImageButton android:src="@drawable/ic_action_alarms"
-               android:background="null"
-               />
+            <ImageButton android:src="@drawable/ic_action_alarms"
+                android:background="@android:color/transparent"
+                />
             <TextView android:text="7.00 (Пн,Ср,Пт)"
-                android:textSize="25dp"
+                android:textSize="20dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
                 android:textColor="@android:color/background_light"
+                />
+            <ImageButton android:src="@drawable/ic_action_remove"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
                 />
         </TableRow>
         <TableRow android:layout_width="match_parent"
@@ -65,15 +76,20 @@
             android:background="@android:color/holo_red_light"
             >
             <ImageButton android:src="@drawable/ic_action_alarms"
-                android:background="null"
+                android:background="@android:color/transparent"
                 />
             <TextView android:text="8.50 (Вт,Чт,Сб)"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="14dp"
                 android:textColor="@android:color/background_light"
+                />
+            <ImageButton android:src="@drawable/ic_action_remove"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
                 />
         </TableRow>
 
-        </TableLayout>
+    </TableLayout>
 </LinearLayout>
