@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MathematicAlarm</string>
+    <string name="app_name">MathAlarm</string>
     <string name="current_alarms">Текущие будильники:</string>
     <string name="add_alarm">Добавить будильник</string>
     <string name="details_alarm_name">Название Будильника</string>
