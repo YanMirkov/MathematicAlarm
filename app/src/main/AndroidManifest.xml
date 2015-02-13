@@ -3,6 +3,7 @@
     package="com.maymeskul.mathematicalarm" >
 
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,12 @@
 
         </activity>
         <activity android:name=".TaskActivity"/>
+        <receiver android:name=".SampleBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
 
     </application>
 
