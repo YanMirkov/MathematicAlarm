@@ -48,6 +48,10 @@ public class AlarmReceiver extends BroadcastReceiver {
                 AlarmManager.INTERVAL_DAY, alarmIntent);
     }
 
-    public void cancelAlarm(Context context){}
+    public void cancelAlarm(Context context){
+        if (alarmMgr!= null) {
+            alarmMgr.cancel(alarmIntent);
+        }
+    }
 
 }
