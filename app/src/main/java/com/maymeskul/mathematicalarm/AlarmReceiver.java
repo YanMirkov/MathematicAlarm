@@ -19,8 +19,9 @@ public class AlarmReceiver extends BroadcastReceiver {
     private PendingIntent alarmIntent;
 
     @Override
-    public void onReceive(Context context, Intent intent) {
 
+    public void onReceive(Context context, Intent intent) {
+        //Получает интент если приложение было закрыто
 
     }
 
