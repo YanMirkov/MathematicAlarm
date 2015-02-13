@@ -19,16 +19,6 @@ public class AlarmsActivity extends ActionBarActivity {
        v.getSolidColor();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
     public void onClickCreateAlarm(View v){
         Intent intent = new Intent(this,AddAlarmActivity.class);
         startActivity(intent);
