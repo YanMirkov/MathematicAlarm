@@ -100,4 +100,9 @@ public class AddAlarmActivity extends ActionBarActivity {
 
         alarm.isEnabled = true;
     }
+
+    public Alarm getAlarm(){ // получаем оббъект класса Alarm,для того чтобы иметь доступ к сохраненным
+        // полям в классе TaskActivity
+        return alarm;
+    }
 }
