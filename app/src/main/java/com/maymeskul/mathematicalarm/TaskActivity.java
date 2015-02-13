@@ -18,7 +18,8 @@ public class TaskActivity extends ActionBarActivity{
 
     public void createAlarm(){}
 
-    public void onClickCreateAlarm(View v){
+    public void onClickCreateAlarm(View v){ // здесь мы создаем будильник и тут будет вызываться метод,
+        // который отрисовывает динамически новый будильник в AlarmsActivity
         addAlarmActivity.saveAlarmSettings();
     }
 }

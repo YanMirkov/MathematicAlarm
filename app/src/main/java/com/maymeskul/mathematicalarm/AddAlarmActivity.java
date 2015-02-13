@@ -32,12 +32,15 @@ public class AddAlarmActivity extends ActionBarActivity {
         alarmRingtoneLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER); // вызываем чузера,с помощью
+                // которого можно выбрать мелодию
                 startActivityForResult(intent, REQUEST);
             }
         });
     }
 
+
+    // выбираем рингтон,который будет играть при запуске будильника
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -56,14 +59,21 @@ public class AddAlarmActivity extends ActionBarActivity {
 
     }
 
-    public void saveAlarmSettings(){
+
+    public void saveAlarmSettings(){ // Сохраняем значения,которые нужны для создания будильника
+
+        // сохраняем время
         TimePicker timePicker = (TimePicker) findViewById(R.id.alarm_details_time_picker);
         alarm.minutes = timePicker.getCurrentMinute().intValue();
         alarm.hours = timePicker.getCurrentHour().intValue();
 
+
+        // сохраняем имя будильника
         EditText edtName = (EditText) findViewById(R.id.alarm_details_name);
         alarm.alarmName = edtName.getText().toString();
 
+
+        // определяем какие дни задействованы
         CheckBox chkWeekly = (CheckBox) findViewById(R.id.alarm_details_repeat_weekly);
         alarm.repeatWeekly = chkWeekly.isChecked();
 
