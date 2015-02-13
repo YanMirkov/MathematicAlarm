@@ -26,7 +26,7 @@
 
         </activity>
         <activity android:name=".TaskActivity"/>
-        <receiver android:name=".SampleBootReceiver"
+        <receiver android:name=".BootReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>

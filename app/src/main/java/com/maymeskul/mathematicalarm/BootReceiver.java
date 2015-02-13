@@ -11,7 +11,7 @@ import java.util.Calendar;
 /**
  * Created by Ян on 2/13/2015.
  */
-public class SampleBootReceiver extends BroadcastReceiver {
+public class BootReceiver extends BroadcastReceiver {
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
     private AddAlarmActivity addAlarmActivity = new AddAlarmActivity();
@@ -27,7 +27,7 @@ public class SampleBootReceiver extends BroadcastReceiver {
 
     public void setAlarm(Context context){
         alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, SampleBootReceiver.class);
+        Intent intent = new Intent(context, BootReceiver.class);
         alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
 
