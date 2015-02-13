@@ -1,9 +1,11 @@
 package com.maymeskul.mathematicalarm;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.CheckBox;

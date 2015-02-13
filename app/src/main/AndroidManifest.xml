@@ -4,6 +4,7 @@
 
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
 
     <application
         android:allowBackup="true"
@@ -24,9 +25,10 @@
 
             </meta-data>
 
+
         </activity>
         <activity android:name=".TaskActivity"/>
-        <receiver android:name=".BootReceiver"
+        <receiver android:name=".AlarmReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>
