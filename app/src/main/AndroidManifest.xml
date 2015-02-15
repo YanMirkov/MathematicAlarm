@@ -47,11 +47,16 @@
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
-            <!--</intent-filter>-->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+            <!-- </intent-filter> -->
         </receiver>
 
+        <activity
+            android:name=".ActiveAlarmActivity"
+            android:label="@string/title_activity_active_alarm" >
+        </activity>
     </application>
 
 </manifest>

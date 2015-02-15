@@ -21,26 +21,40 @@ import java.util.Calendar;
 public class AlarmReceiver extends BroadcastReceiver {
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
-
+    static MediaPlayer mPlayer;
     @Override
 
     public void onReceive(Context context, Intent intent) {
+        int hour = intent.getIntExtra("hour",1);
+        int minute = intent.getIntExtra("minute",1);
 
         Toast.makeText(context,intent.getIntExtra("hour",1)+ " : " + intent.getIntExtra("minute",1),
                 Toast.LENGTH_LONG).show();
         Log.d("My","Alarm!!!!!!!!!!!!!!!!1");
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        MediaPlayer mPlayer = new MediaPlayer();
-        Uri tone = intent.getParcelableExtra("tone");
+         mPlayer = new MediaPlayer();
+        Uri tone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        if(tone != null && !tone.equals("")){
+            tone =  intent.getParcelableExtra("tone");
+        }
+
         try {
+
             mPlayer.setDataSource(context, tone);
             mPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
             mPlayer.setLooping(true);
             mPlayer.prepare();
             mPlayer.start();
+
+
         } catch (Exception e){
             e.printStackTrace();
         }
+        Intent activeAlarm = new Intent(context,ActiveAlarmActivity.class);
+        activeAlarm.putExtra("hour",hour);
+        activeAlarm.putExtra("minute",minute);
+        activeAlarm.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(activeAlarm);
 
     }
 

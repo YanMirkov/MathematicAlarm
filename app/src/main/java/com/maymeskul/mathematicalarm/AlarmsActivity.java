@@ -2,6 +2,8 @@ package com.maymeskul.mathematicalarm;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -37,7 +39,7 @@ public class AlarmsActivity extends ActionBarActivity {
         startActivityForResult(intent,1);
     }
 
-    public void drawAlarm(int h,int m,String n){
+    public void drawAlarm(int h,int m,String d){
 
 
         final TableLayout table = (TableLayout) findViewById(R.id.table);
@@ -72,11 +74,16 @@ public class AlarmsActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 table.removeView(tr);
+                Intent intent = new Intent(AlarmsActivity.this,AlarmReceiver.class);
+                PendingIntent pIntent = PendingIntent.getBroadcast(AlarmsActivity.this.getApplicationContext(),1,
+                        intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                AlarmManager aManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                aManager.cancel(pIntent);
             }
         });
 
         TextView tv = new TextView(this);
-        tv.setText(n + " " +h + " : " + m);
+        tv.setText(h + " : " + m + " ( " +d + " )");
         tv.setTextColor(Color.WHITE);
         tv.setTextSize(20);
 
@@ -91,12 +98,11 @@ public class AlarmsActivity extends ActionBarActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        int hour = data.getIntExtra("hour",1);
-        int minute = data.getIntExtra("minute", 1);
-        String name = data.getStringExtra("name");
-        drawAlarm(hour,minute,name);
-
-
-
+        if(resultCode == RESULT_OK) {
+            int hour = data.getIntExtra("hour", 1);
+            int minute = data.getIntExtra("minute", 1);
+            String days = data.getStringExtra("days");
+            drawAlarm(hour, minute, days);
+        }
     }
 }

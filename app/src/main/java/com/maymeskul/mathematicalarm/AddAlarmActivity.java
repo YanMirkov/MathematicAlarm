@@ -29,6 +29,8 @@ public class AddAlarmActivity extends ActionBarActivity {
     public static final int REQUEST = 1;
     private Alarm alarm;
     String Tone;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,31 +72,34 @@ public class AddAlarmActivity extends ActionBarActivity {
 
     public void onClickCreateAlarm(View v){
         saveAlarmSettings();
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, alarm.hours);
         calendar.set(Calendar.MINUTE,alarm.minutes);
 
         Intent intent2 = new Intent();
-
         Intent intent = new Intent(this, AlarmReceiver.class);
+
         intent.putExtra("hour",alarm.hours);
         intent.putExtra("minute",alarm.minutes);
         intent.putExtra("tone",alarm.ringtoneUri);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 1, intent, 0);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 1, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
                 , pendingIntent);
+
         Toast.makeText(this, "Alarm set in " + alarm.hours + ": " + alarm.minutes,
                 Toast.LENGTH_LONG).show();
 
         intent2.putExtra("hour",alarm.hours);
         intent2.putExtra("minute",alarm.minutes);
-        intent2.putExtra("name",alarm.alarmName);
-        setResult(RESULT_OK,intent2);
-
+        intent2.putExtra("days",getDays());
+        setResult(RESULT_OK, intent2);
         finish();
-
     }
 
 
@@ -138,6 +143,45 @@ public class AddAlarmActivity extends ActionBarActivity {
 
         alarm.isEnabled = true;
     }
+
+    public String getDays(){
+        StringBuilder days = new StringBuilder();
+
+        if(alarm.repeatWeekly){
+            days.append("Ежедневно");
+        }
+
+        for(int i =0;i<7;i++){
+            switch (i){
+                case 0:
+                    if(alarm.getDay(i) && alarm.repeatWeekly == false){
+                        days.append("Пн ");
+                    };break;
+                case 1:
+                    if(alarm.getDay(i) && alarm.repeatWeekly == false){
+                        days.append("Вт ");
+                    };break;
+                case 2:if(alarm.getDay(i) && alarm.repeatWeekly == false){
+                    days.append("Ср ");
+                };break;
+                case 3:
+                    if(alarm.getDay(i) && alarm.repeatWeekly== false){
+                        days.append("Чт ");
+                    };break;
+                case 4:if(alarm.getDay(i) && alarm.repeatWeekly == false){
+                    days.append("Пт ");
+                };break;
+                case 5:if(alarm.getDay(i) && alarm.repeatWeekly == false){
+                    days.append("Сб ");
+                };break;
+                case 6:if(alarm.getDay(i) && alarm.repeatWeekly == false){
+                    days.append("Вс ");
+                };break;
+            }
+        }
+        return days.toString();
+    }
+
 
     public int getHour(){
         return alarm.hours;

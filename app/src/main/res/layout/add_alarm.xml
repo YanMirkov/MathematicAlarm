@@ -147,7 +147,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_wednesday"
             android:layout_alignBottom="@+id/alarm_details_label_wednesday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+             />
 
         <CheckBox
             android:id="@+id/alarm_details_repeat_sunday"
@@ -156,7 +156,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_sunday"
             android:layout_alignBottom="@+id/alarm_details_label_sunday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+            />
 
         <CheckBox
             android:id="@+id/alarm_details_repeat_monday"
@@ -165,7 +165,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_monday"
             android:layout_alignBottom="@+id/alarm_details_label_monday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+            />
 
         <CheckBox
             android:id="@+id/alarm_details_repeat_tuesday"
@@ -174,7 +174,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_tuesday"
             android:layout_alignBottom="@+id/alarm_details_label_tuesday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+            />
 
         <CheckBox
             android:id="@+id/alarm_details_repeat_thursday"
@@ -183,7 +183,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_thursday"
             android:layout_alignBottom="@+id/alarm_details_label_thursday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+             />
 
         <CheckBox
             android:id="@+id/alarm_details_repeat_friday"
@@ -192,7 +192,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_friday"
             android:layout_alignBottom="@+id/alarm_details_label_friday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+             />
 
         <CheckBox
             android:id="@+id/alarm_details_repeat_saturday"
@@ -201,7 +201,7 @@
             android:layout_alignBaseline="@+id/alarm_details_label_saturday"
             android:layout_alignBottom="@+id/alarm_details_label_saturday"
             android:layout_alignParentRight="true"
-            android:checked="true" />
+             />
 
         <LinearLayout
             android:id="@+id/alarm_ringtone_container"
@@ -274,21 +274,29 @@
             android:textSize="16dp"
             android:layout_marginTop="10dp"
             />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/task"
+            android:layout_alignParentRight="true"
+            >
+
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/easy"
-            android:layout_alignBottom="@id/easy"
-            android:layout_alignParentRight="true"
+            android:id="@+id/radio_easy"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medium"
-            android:checked="true"
-            android:layout_alignBottom="@id/medium"
-            android:layout_alignParentRight="true"
+            android:id="@+id/radio_medium"
             />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_hard"
+            />
+        </RadioGroup>
         <View
             android:id="@+id/divider5"
             android:layout_width="fill_parent"
@@ -297,13 +305,7 @@
             android:layout_below="@+id/hard"
             android:layout_marginTop="5dp"
             />
-        <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/hard"
-        android:layout_alignBottom="@id/hard"
-        android:layout_alignParentRight="true"
-        />
+
 
 
         <Button
