@@ -2,6 +2,8 @@ package com.maymeskul.mathematicalarm;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
@@ -13,8 +15,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.Calendar;
 
 /**
  * Created by Ян on 2/10/2015.
@@ -41,6 +46,11 @@ public class AddAlarmActivity extends ActionBarActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        saveAlarmSettings();
+    }
 
     // выбираем рингтон,который будет играть при запуске будильника
     @Override
@@ -55,9 +65,33 @@ public class AddAlarmActivity extends ActionBarActivity {
         }
     }
 
-    public void onClickChoseTask(View v){
-        Intent intent = new Intent(this,TaskActivity.class);
-        startActivity(intent);
+
+
+    public void onClickCreateAlarm(View v){
+        saveAlarmSettings();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, alarm.hours);
+        calendar.set(Calendar.MINUTE,alarm.minutes);
+
+        Intent intent2 = new Intent();
+
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("hour",alarm.hours);
+        intent.putExtra("minute",alarm.minutes);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 1, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pendingIntent);
+        Toast.makeText(this, "Alarm set in " + alarm.hours + ": " + alarm.minutes,
+                Toast.LENGTH_LONG).show();
+
+        intent2.putExtra("hour",alarm.hours);
+        intent2.putExtra("minute",alarm.minutes);
+        intent2.putExtra("name",alarm.alarmName);
+        setResult(RESULT_OK,intent2);
+
+        finish();
 
     }
 
@@ -103,8 +137,10 @@ public class AddAlarmActivity extends ActionBarActivity {
         alarm.isEnabled = true;
     }
 
-    public Alarm getAlarm(){ // получаем оббъект класса Alarm,для того чтобы иметь доступ к сохраненным
-        // полям в классе TaskActivity
-        return alarm;
+    public int getHour(){
+        return alarm.hours;
+    }
+    public int getMinute(){
+        return alarm.minutes;
     }
 }

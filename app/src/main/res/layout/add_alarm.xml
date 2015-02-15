@@ -238,16 +238,84 @@
             android:layout_below="@+id/alarm_ringtone_container"
             android:layout_marginTop="5dp"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/task"
+            android:layout_below="@+id/divider4"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/task"
+            />
+        <TextView
+            android:id="@+id/easy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/easy"
+            android:layout_below="@+id/task"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medium"
+            android:layout_below="@+id/easy"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hard"
+            android:layout_below="@+id/medium"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/easy"
+            android:layout_alignBottom="@id/easy"
+            android:layout_alignParentRight="true"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/medium"
+            android:checked="true"
+            android:layout_alignBottom="@id/medium"
+            android:layout_alignParentRight="true"
+            />
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_green_dark"
+            android:layout_below="@+id/hard"
+            android:layout_marginTop="5dp"
+            />
+        <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/hard"
+        android:layout_alignBottom="@id/hard"
+        android:layout_alignParentRight="true"
+        />
+
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_tasks"
-            android:layout_below="@+id/divider4"
+            android:text="@string/btn_create"
+            android:layout_below="@+id/divider5"
             android:background="@android:color/holo_blue_dark"
             android:textColor="@android:color/background_light"
             android:layout_marginTop="10dp"
             android:layout_alignRight="@+id/divider4"
-            android:onClick="onClickChoseTask"
+            android:onClick="onClickCreateAlarm"
             />
 
     </RelativeLayout>
