@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.support.v7.app.ActionBarActivity;
@@ -27,7 +28,7 @@ import java.util.Calendar;
 public class AddAlarmActivity extends ActionBarActivity {
     public static final int REQUEST = 1;
     private Alarm alarm;
-
+    String Tone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +80,11 @@ public class AddAlarmActivity extends ActionBarActivity {
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.putExtra("hour",alarm.hours);
         intent.putExtra("minute",alarm.minutes);
+        intent.putExtra("tone",alarm.ringtoneUri);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 1, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
+                , pendingIntent);
         Toast.makeText(this, "Alarm set in " + alarm.hours + ": " + alarm.minutes,
                 Toast.LENGTH_LONG).show();
 
