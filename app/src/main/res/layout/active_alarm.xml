@@ -17,13 +17,49 @@
         android:textColor="@android:color/white"
         android:layout_centerHorizontal="true"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/exacttask"
+        android:text="Задание"
+        android:layout_below="@id/time"
+        android:layout_marginTop="10dp"
+        android:background="@color/background_material_dark"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваш ответ:"
+        android:layout_below="@id/exacttask"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"
+        />
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/exacttask"
+        android:layout_centerHorizontal="true"
+        android:hint=" ? ? ?"
+        android:id="@+id/edit"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dismiss"
-        android:text="Dismiss"
-        android:layout_below="@+id/time"
+        android:text="Выключить"
+        android:layout_below="@+id/exacttask"
         android:layout_centerHorizontal="true"
         android:onClick="onClickDismiss"
+        android:layout_marginTop="50dp"
+        android:background="@color/background_material_dark"
+        android:textColor="@android:color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         />
 </RelativeLayout>

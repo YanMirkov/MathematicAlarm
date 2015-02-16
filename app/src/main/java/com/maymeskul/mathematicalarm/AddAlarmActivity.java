@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -27,6 +28,9 @@ import java.util.Calendar;
  */
 public class AddAlarmActivity extends ActionBarActivity {
     public static final int REQUEST = 1;
+    public static final int EASY = 1;
+    public static final int MEDIUM = 2;
+    public static final int HARD = 3;
     private Alarm alarm;
     String Tone;
 
@@ -77,9 +81,17 @@ public class AddAlarmActivity extends ActionBarActivity {
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, alarm.hours);
         calendar.set(Calendar.MINUTE,alarm.minutes);
+        calendar.set(Calendar.SECOND,0);
+
 
         Intent intent2 = new Intent();
         Intent intent = new Intent(this, AlarmReceiver.class);
+
+        if(alarm.isEasy){
+            intent.putExtra("complexity", EASY);
+        }
+        else if(alarm.isMedium){intent.putExtra("complexity", MEDIUM);}
+        else{intent.putExtra("complexity", HARD);}
 
         intent.putExtra("hour",alarm.hours);
         intent.putExtra("minute",alarm.minutes);
@@ -89,8 +101,13 @@ public class AddAlarmActivity extends ActionBarActivity {
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        if(alarm.repeatWeekly){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                    AlarmManager.INTERVAL_DAY, pendingIntent);
+        } else {
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
-                , pendingIntent);
+                , pendingIntent);}
 
         Toast.makeText(this, "Alarm set in " + alarm.hours + ": " + alarm.minutes,
                 Toast.LENGTH_LONG).show();
@@ -115,7 +132,14 @@ public class AddAlarmActivity extends ActionBarActivity {
         EditText edtName = (EditText) findViewById(R.id.alarm_details_name);
         alarm.alarmName = edtName.getText().toString();
 
+        RadioButton easy = (RadioButton) findViewById(R.id.radio_easy);
+        alarm.isEasy = easy.isChecked();
 
+        RadioButton medium = (RadioButton) findViewById(R.id.radio_medium);
+        alarm.isMedium = medium.isChecked();
+
+        RadioButton hard = (RadioButton) findViewById(R.id.radio_hard);
+        alarm.isMedium = hard.isChecked();
         // определяем какие дни задействованы
         CheckBox chkWeekly = (CheckBox) findViewById(R.id.alarm_details_repeat_weekly);
         alarm.repeatWeekly = chkWeekly.isChecked();

@@ -23,6 +23,9 @@ public class Alarm {
     public int minutes;
     public Uri ringtoneUri;
     public boolean isEnabled;
+    public boolean isEasy;
+    public boolean isMedium;
+    public boolean isHard;
 
     public Alarm(){
         days = new boolean[7];

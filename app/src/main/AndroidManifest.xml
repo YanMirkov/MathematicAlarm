@@ -57,6 +57,11 @@
             android:name=".ActiveAlarmActivity"
             android:label="@string/title_activity_active_alarm" >
         </activity>
+
+        <service
+            android:name=".TaskService"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>

@@ -27,6 +27,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         int hour = intent.getIntExtra("hour",1);
         int minute = intent.getIntExtra("minute",1);
+        int compl = intent.getIntExtra("complexity",2);
 
         Toast.makeText(context,intent.getIntExtra("hour",1)+ " : " + intent.getIntExtra("minute",1),
                 Toast.LENGTH_LONG).show();
@@ -53,6 +54,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent activeAlarm = new Intent(context,ActiveAlarmActivity.class);
         activeAlarm.putExtra("hour",hour);
         activeAlarm.putExtra("minute",minute);
+        activeAlarm.putExtra("complexity",compl);
         activeAlarm.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(activeAlarm);
 
