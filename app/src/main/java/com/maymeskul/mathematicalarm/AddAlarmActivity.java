@@ -96,18 +96,16 @@ public class AddAlarmActivity extends ActionBarActivity {
         intent.putExtra("hour",alarm.hours);
         intent.putExtra("minute",alarm.minutes);
         intent.putExtra("tone",alarm.ringtoneUri);
+        intent.putExtra("message",alarm.alarmName);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 1, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        if(alarm.repeatWeekly){
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                    AlarmManager.INTERVAL_DAY, pendingIntent);
-        } else {
+
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
-                , pendingIntent);}
+                , pendingIntent);
 
         Toast.makeText(this, "Alarm set in " + alarm.hours + ": " + alarm.minutes,
                 Toast.LENGTH_LONG).show();
@@ -115,6 +113,7 @@ public class AddAlarmActivity extends ActionBarActivity {
         intent2.putExtra("hour",alarm.hours);
         intent2.putExtra("minute",alarm.minutes);
         intent2.putExtra("days",getDays());
+
         setResult(RESULT_OK, intent2);
         finish();
     }
@@ -139,7 +138,7 @@ public class AddAlarmActivity extends ActionBarActivity {
         alarm.isMedium = medium.isChecked();
 
         RadioButton hard = (RadioButton) findViewById(R.id.radio_hard);
-        alarm.isMedium = hard.isChecked();
+        alarm.isHard = hard.isChecked();
         // определяем какие дни задействованы
         CheckBox chkWeekly = (CheckBox) findViewById(R.id.alarm_details_repeat_weekly);
         alarm.repeatWeekly = chkWeekly.isChecked();

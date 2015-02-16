@@ -29,8 +29,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         int minute = intent.getIntExtra("minute",1);
         int compl = intent.getIntExtra("complexity",2);
 
-        Toast.makeText(context,intent.getIntExtra("hour",1)+ " : " + intent.getIntExtra("minute",1),
-                Toast.LENGTH_LONG).show();
         Log.d("My","Alarm!!!!!!!!!!!!!!!!1");
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
          mPlayer = new MediaPlayer();
@@ -55,17 +53,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         activeAlarm.putExtra("hour",hour);
         activeAlarm.putExtra("minute",minute);
         activeAlarm.putExtra("complexity",compl);
+        activeAlarm.putExtra("message",intent.getStringExtra("message").toString());
         activeAlarm.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(activeAlarm);
-
-    }
-
-
-    public void setAlarm(Context context) {
-
-    }
-
-    public void cancelAlarm(Context context){
 
     }
 

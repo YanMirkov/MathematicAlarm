@@ -9,13 +9,13 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
-    <android:uses-permission
+    <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
+        android:maxSdkVersion="21" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+        android:maxSdkVersion="21" />
 
     <application
         android:allowBackup="true"
@@ -58,10 +58,6 @@
             android:label="@string/title_activity_active_alarm" >
         </activity>
 
-        <service
-            android:name=".TaskService"
-            android:exported="false" >
-        </service>
     </application>
 
 </manifest>

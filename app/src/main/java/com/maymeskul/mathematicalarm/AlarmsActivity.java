@@ -65,6 +65,7 @@ public class AlarmsActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 tr.setBackgroundColor(Color.parseColor("#FF6161"));
+                
             }
         });
 
@@ -79,6 +80,7 @@ public class AlarmsActivity extends ActionBarActivity {
                         intent,PendingIntent.FLAG_UPDATE_CURRENT);
                 AlarmManager aManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 aManager.cancel(pIntent);
+
             }
         });
 
