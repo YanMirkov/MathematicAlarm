@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">MathAlarm</string>
     <string name="current_alarms">Текущие будильники:</string>
     <string name="add_alarm">Добавить будильник</string>
-    <string name="details_alarm_name">Название Будильника</string>
+    <string name="details_alarm_name">Сообщение</string>
     <string name="details_repeat_weekly">Ежедневно</string>
     <string name="details_sunday">Воскресенье</string>
     <string name="details_monday">Понедельник</string>
@@ -13,8 +15,14 @@
     <string name="details_saturday">Суббота</string>
     <string name="details_alarm_tone">Мелодия</string>
     <string name="details_alarm_tone_default">Выбрать Мелодию</string>
-    <string name="btn_tasks">Далее</string>
     <string name="btn_create">Создать</string>
-
+    <string name="title_activity_my">my</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="task">Сложность Задания</string>
+    <string name="easy">Легкое</string>
+    <string name="medium">Среднее</string>
+    <string name="hard">Сложное</string>
+    <string name="title_activity_active_alarm">ActiveAlarmActivity</string>
 
 </resources>

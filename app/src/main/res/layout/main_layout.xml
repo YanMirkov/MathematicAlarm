@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/ll"
+    tools:context="com.maymeskul.mathematicalarm.AlarmsActivity">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:id="@+id/table"
         android:background="@android:color/holo_orange_light">
 
         <TableRow android:layout_width="match_parent"
@@ -28,68 +32,68 @@
                 />
         </TableRow>
 
-        <TableRow android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@color/highlighted_text_material_light"
-            >
-            <ImageButton android:src="@drawable/ic_action_alarms"
-                android:background="@android:color/transparent"
-                />
-            <TextView android:text="6.00 (Ежедневно)"
-                android:textSize="20dp"
-                android:layout_marginTop="14dp"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:textColor="@android:color/background_light"
-                />
-            <ImageButton android:src="@drawable/ic_action_remove"
-                android:background="@android:color/transparent"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="50dp"
-                />
+        <!--<TableRow android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:background="@color/highlighted_text_material_light"-->
+            <!-->-->
+            <!--<ImageButton android:src="@drawable/ic_action_alarms"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--/>-->
+            <!--<TextView android:text="6.00 (Ежедневно)"-->
+                <!--android:textSize="20dp"-->
+                <!--android:layout_marginTop="14dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:textColor="@android:color/background_light"-->
+                <!--/>-->
+            <!--<ImageButton android:src="@drawable/ic_action_remove"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--/>-->
 
-        </TableRow>
-        <TableRow android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            >
-            <ImageButton android:src="@drawable/ic_action_alarms"
-                android:background="@android:color/transparent"
-                />
-            <TextView android:text="7.00 (Пн,Ср,Пт)"
-                android:textSize="20dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginLeft="30dp"
-                android:textColor="@android:color/background_light"
-                />
-            <ImageButton android:src="@drawable/ic_action_remove"
-                android:background="@android:color/transparent"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="50dp"
-                />
-        </TableRow>
-        <TableRow android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            >
-            <ImageButton android:src="@drawable/ic_action_alarms"
-                android:background="@android:color/transparent"
-                />
-            <TextView android:text="8.50 (Вт,Чт,Сб)"
-                android:textSize="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="14dp"
-                android:textColor="@android:color/background_light"
-                />
-            <ImageButton android:src="@drawable/ic_action_remove"
-                android:background="@android:color/transparent"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="50dp"
-                />
-        </TableRow>
+        <!--</TableRow>-->
+        <!--<TableRow android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@android:color/holo_red_light"-->
+            <!-->-->
+            <!--<ImageButton android:src="@drawable/ic_action_alarms"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--/>-->
+            <!--<TextView android:text="7.00 (Пн,Ср,Пт)"-->
+                <!--android:textSize="20dp"-->
+                <!--android:layout_marginTop="14dp"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:textColor="@android:color/background_light"-->
+                <!--/>-->
+            <!--<ImageButton android:src="@drawable/ic_action_remove"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--/>-->
+        <!--</TableRow>-->
+        <!--<TableRow android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@android:color/holo_red_light"-->
+            <!-->-->
+            <!--<ImageButton android:src="@drawable/ic_action_alarms"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--/>-->
+            <!--<TextView android:text="8.50 (Вт,Чт,Сб)"-->
+                <!--android:textSize="20dp"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:layout_marginTop="14dp"-->
+                <!--android:textColor="@android:color/background_light"-->
+                <!--/>-->
+            <!--<ImageButton android:src="@drawable/ic_action_remove"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--/>-->
+        <!--</TableRow>-->
 
     </TableLayout>
 </LinearLayout>

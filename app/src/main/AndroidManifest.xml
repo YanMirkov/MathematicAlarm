@@ -2,7 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.maymeskul.mathematicalarm" >
 
-    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21"/>
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="21" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="21" />
 
     <application
         android:allowBackup="true"
@@ -11,22 +24,40 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".AlarmsActivity" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SET_ALARM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddAlarmActivity" android:label="Создать Будильник"
-            android:parentActivityName=".AlarmsActivity">
-            <meta-data android:name="android:support.PARENT_ACTIVITY"
-                android:value="com.maymeskul.mathematicalarm.AlarmsActivity"
-                >
-
+        <activity
+            android:name=".AddAlarmActivity"
+            android:label="Создать Будильник"
+            android:parentActivityName=".AlarmsActivity" >
+            <meta-data
+                android:name="android:support.PARENT_ACTIVITY"
+                android:value="com.maymeskul.mathematicalarm.AlarmsActivity" >
             </meta-data>
-
         </activity>
-        <activity android:name=".TaskActivity"/>
 
-        <service android:name=".AlarmService" android:enabled="true"/>
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+            <!-- </intent-filter> -->
+        </receiver>
+
+        <activity
+            android:name=".ActiveAlarmActivity"
+            android:label="@string/title_activity_active_alarm" >
+        </activity>
+
     </application>
 
 </manifest>
